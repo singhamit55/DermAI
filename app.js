@@ -5,7 +5,7 @@
 
 const API_BASE = "http://127.0.0.1:5000/api";
 const LLAMA_URL = "https://api.groq.com/openai/v1/chat/completions";
-const LLAMA_KEY = "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";
+const LLAMA_KEY = "YOUR_GROQ_API_KEY_HERE"; // Do NOT put your real key here when pushing to GitHub!
 
 // Remove dark mode class if left over
 document.body.classList.remove("dark-mode");
