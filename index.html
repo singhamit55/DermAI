@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DermAI — Clinical Acne Intelligence</title>
+  <meta name="description" content="Clinical-grade acne severity diagnosis powered by EfficientNet-B0 and Tri-Layer XAI (Grad-CAM, LIME, SHAP)." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Top Navigation ── -->
+  <header class="nav" id="mainNav">
+    <div class="nav__inner">
+
+      <a href="#" class="nav__logo" data-nav="home">
+        <div class="nav__logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l7 3v6c0 5-4 9-7 10-3-1-7-5-7-10V5l7-3z"/></svg>
+        </div>
+        <div class="nav__logo-text">
+          <span class="nav__logo-name">DermAI</span>
+          <span class="nav__logo-sub">CLINICAL VISION</span>
+        </div>
+      </a>
+
+      <div class="nav__backdrop" id="navBackdrop"></div>
+      <div class="nav__links-wrapper" id="navLinksWrapper">
+        <button class="nav__close" id="navCloseBtn" aria-label="Close menu">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <nav class="nav__links" id="navLinks">
+          <a class="nav__link active" data-nav="home">Overview</a>
+          <a class="nav__link" data-nav="analyze">Analyze</a>
+          <a class="nav__link" data-nav="routine">Routine</a>
+          <a class="nav__link" data-nav="history">History</a>
+          <a class="nav__link" data-nav="research">Research</a>
+          <a class="nav__link" data-nav="chat">AI Assistant</a>
+        </nav>
+      </div>
+
+      <div class="nav__right">
+        <button class="nav__hamburger" id="navHamburger" aria-label="Toggle menu">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <button class="nav__cta" data-nav="analyze">New Scan →</button>
+        <button class="nav__profile" id="navProfileBtn" data-nav="profile" aria-label="User profile">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── App Screens ── -->
+  <main id="app"></main>
+
+  <script src="app.js"></script>
+</body>
+</html>
