@@ -1,5 +1,7 @@
 Live Link :-  https://agent-6a5baeb93ab28bd43c5224d4--dermai-amit.netlify.app
 
+link in short:--https://bit.ly/4fIx2li
+
 
 
 # 🩺 DermAI: Clinical Vision
