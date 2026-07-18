@@ -1,6 +1,6 @@
 Flask==2.3.2
 Flask-Cors==3.0.10
-numpy==1.24.3
+numpy==1.26.4
 opencv-python==4.8.0.74
 scikit-image==0.21.0
 joblib==1.2.0
