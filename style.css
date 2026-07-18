@@ -529,8 +529,7 @@ img {
   display: flex;
   gap: 40px;
   margin-top: 64px;
-  padding-top: 32px;
-  border-top: 1px solid var(--border);
+  padding-top: 16px;
 }
 
 .hstat {
@@ -2428,13 +2427,29 @@ body:has(.onboarding-container) #app {
     margin-left: 0 !important;
   }
   .hero__stats {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
     gap: 12px;
-    align-items: flex-start;
+    align-items: center;
   }
   
   .page {
     padding: 0 12px 60px !important;
+  }
+  
+  /* Global Mobile Typography for Professional Look */
+  h1, .page-head__title {
+    font-size: 22px !important;
+    line-height: 1.3 !important;
+  }
+  h2, h3, .panel__title, .r-card__title, .edu-card__title {
+    font-size: 17px !important;
+    line-height: 1.4 !important;
+  }
+  p, .page-head__sub, .panel__sub, .r-card__sub, .edu-card__desc {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
   }
   
   /* Form Elements */

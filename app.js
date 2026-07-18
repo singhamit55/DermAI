@@ -5,7 +5,7 @@
 
 const API_BASE = "http://127.0.0.1:5000/api";
 const LLAMA_URL = "https://api.groq.com/openai/v1/chat/completions";
-const LLAMA_KEY = "YOUR_GROQ_API_KEY_HERE"; // Do NOT put your real key here when pushing to GitHub!
+const LLAMA_KEY = "";// Do NOT put your real key here when pushing to GitHub!
 
 // Remove dark mode class if left over
 document.body.classList.remove("dark-mode");
@@ -234,12 +234,9 @@ function renderHome() {
           <h1 class="hero__h1" style="font-size: 38px; line-height: 1.15; margin-bottom: 14px; color: var(--ink);">Clinical-grade <em>acne</em><br>intelligence, explained.</h1>
           <p class="hero__sub" style="font-size: 14px; color: var(--ink-2); margin-bottom: 24px; line-height: 1.5;">DermAI combines an EfficientNet-B0 vision backbone with three explainability methods and a specialist chatbot — so you don't just see a prediction, you understand it.</p>
 
-          <div class="hero__actions" style="margin-bottom: 28px;">
-            <button class="btn-primary" data-nav="analyze">${ic(SVG.cam)} Start Analysis</button>
-            <button class="btn-ghost" data-nav="history" style="color: var(--primary);">View past scans →</button>
-          </div>
 
-          <div class="hero__stats" style="display: flex; gap: 24px; border-top: 1px solid rgba(0,0,0,0.08); padding-top: 20px;">
+
+          <div class="hero__stats" style="display: flex; gap: 24px; padding-top: 20px;">
             <div class="hstat">
               <div class="hstat__val" style="font-size: 22px; font-weight: 800; color: var(--primary);">91.6%</div>
               <div class="hstat__lbl" style="font-size: 9px; font-weight: 700; text-transform: uppercase; color: var(--ink-3); margin-top: 4px; letter-spacing: 0.05em;">Model Accuracy</div>
@@ -252,27 +249,12 @@ function renderHome() {
               <div class="hstat__val" style="font-size: 22px; font-weight: 800; color: var(--primary);">3</div>
               <div class="hstat__lbl" style="font-size: 9px; font-weight: 700; text-transform: uppercase; color: var(--ink-3); margin-top: 4px; letter-spacing: 0.05em;">XAI Methods</div>
             </div>
-            <div class="hstat">
-              <div class="hstat__val" style="font-size: 22px; font-weight: 800; color: var(--primary);">3,200</div>
-              <div class="hstat__lbl" style="font-size: 9px; font-weight: 700; text-transform: uppercase; color: var(--ink-3); margin-top: 4px; letter-spacing: 0.05em;">Training Images</div>
-            </div>
           </div>
         </div>
 
-        <!-- Floating manual controls inside the banner -->
-        <button id="heroPrevBtn" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.7); backdrop-filter: blur(8px); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--ink); box-shadow: var(--sh-sm); z-index: 10; transition: all 0.2s;" onmouseover="this.style.background='var(--primary)'; this.style.color='#fff';" onmouseout="this.style.background='rgba(255,255,255,0.7)'; this.style.color='var(--ink)';">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <button id="heroNextBtn" style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.7); backdrop-filter: blur(8px); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--ink); box-shadow: var(--sh-sm); z-index: 10; transition: all 0.2s;" onmouseover="this.style.background='var(--primary)'; this.style.color='#fff';" onmouseout="this.style.background='rgba(255,255,255,0.7)'; this.style.color='var(--ink)';">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
 
-        <!-- Dots Indicator at bottom -->
-        <div id="heroDots" style="position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10; background: rgba(255,255,255,0.65); backdrop-filter: blur(8px); padding: 6px 12px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.4);">
-          ${HERO_BACKGROUNDS.map((_, i) => `
-            <span class="hero-dot" data-index="${i}" style="width: 8px; height: 8px; border-radius: 50%; border: 1.5px solid var(--ink-2); background: ${i === 0 ? 'var(--ink)' : 'transparent'}; cursor: pointer; transition: all 0.2s;"></span>
-          `).join('')}
-        </div>
+
+
 
         <div id="creatorBadge" style="position: absolute; bottom: 24px; right: 8%; font-size: 11px; font-weight: 600; color: var(--ink-3); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); padding: 6px 12px; border-radius: 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.06); z-index: 10; pointer-events: none;">
           Created &amp; Designed by Amit Singh
@@ -384,52 +366,22 @@ function renderHome() {
     if (el) {
       el.style.backgroundImage = `url('${HERO_BACKGROUNDS[activeHeroBg]}')`;
     }
-
-    // Update dots styling
-    document.querySelectorAll(".hero-dot").forEach((dot, idx) => {
-      if (idx === activeHeroBg) {
-        dot.style.background = "var(--ink)";
-        dot.style.borderColor = "var(--ink)";
-        dot.style.transform = "scale(1.2)";
-      } else {
-        dot.style.background = "transparent";
-        dot.style.borderColor = "var(--ink-2)";
-        dot.style.transform = "scale(1)";
-      }
-    });
   }
 
-  // Bind click handlers
-  const prevBtn = document.getElementById("heroPrevBtn");
-  const nextBtn = document.getElementById("heroNextBtn");
-
-  if (prevBtn) {
-    prevBtn.onclick = () => {
-      const prevIdx = (activeHeroBg - 1 + HERO_BACKGROUNDS.length) % HERO_BACKGROUNDS.length;
-      updateHeroBackground(prevIdx);
-    };
-  }
-
-  if (nextBtn) {
-    nextBtn.onclick = () => {
+  // Bind double click handler for hero banner
+  const heroEl = document.querySelector(".hero");
+  if (heroEl) {
+    heroEl.ondblclick = () => {
       const nextIdx = (activeHeroBg + 1) % HERO_BACKGROUNDS.length;
       updateHeroBackground(nextIdx);
     };
+    heroEl.style.cursor = "pointer";
+    heroEl.title = "Double click to change background";
+    heroEl.style.userSelect = "none";
   }
 
-  document.querySelectorAll(".hero-dot").forEach(dot => {
-    dot.onclick = (e) => {
-      const idx = parseInt(e.target.dataset.index, 10);
-      updateHeroBackground(idx);
-    };
-  });
-
-  // Auto change system every 20 seconds
+  // Auto change system disabled
   if (heroInterval) clearInterval(heroInterval);
-  heroInterval = setInterval(() => {
-    const nextIdx = (activeHeroBg + 1) % HERO_BACKGROUNDS.length;
-    updateHeroBackground(nextIdx);
-  }, 20000);
 }
 
 /* ============================================================
@@ -789,9 +741,7 @@ function renderResult() {
               <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
               View Routine
             </button>
-            <button class="btn-teal" style="justify-content:center;flex:1;min-width:140px;" data-nav="research">
-              ${ic(SVG.book)} View Research
-            </button>
+
             <button class="btn-ghost" style="justify-content:center;flex:1;min-width:140px;border:1px solid var(--border);" data-nav="chat">
               ${ic(SVG.brain)} Go for Ai 
               
@@ -1123,14 +1073,7 @@ function renderRoutine() {
             Personalized AI schedule based on your ${r ? "latest scan (" + (r.severity || "Unknown") + ")" : "skin profile"}.
           </p>
         </div>
-        <div style="margin-left: auto; display: flex; gap: 12px;">
-          <button class="btn-ghost" style="border: 1px solid var(--border);" onclick="window.toggleEditRoutine()">
-            ${isEdit ? "Done Editing" : "Edit Routine"}
-          </button>
-          <button class="btn-primary" data-nav="chat" onclick="setTimeout(() => { const i = document.getElementById('chatInput'); if(i){ i.value='Can you review my skincare routine for ${severity} acne?'; i.focus(); } }, 100)">
-            ${ic(SVG.brain, 16)} Ask AI
-          </button>
-        </div>
+
       </div>
 
       <div style="display: grid; gap: 24px;">
@@ -1220,6 +1163,15 @@ function renderRoutine() {
           </div>
         </div>
       </div>
+
+      <div style="display: flex; justify-content: center; gap: 16px; margin-top: 32px; padding-bottom: 24px;">
+        <button class="btn-ghost" style="border: 1px solid var(--border); padding: 0 24px;" onclick="window.toggleEditRoutine()">
+          ${isEdit ? "Done Editing" : "Edit Routine"}
+        </button>
+        <button class="btn-primary" style="padding: 0 24px;" data-nav="chat" onclick="setTimeout(() => { const i = document.getElementById('chatInput'); if(i){ i.value='Can you review my skincare routine for ${severity} acne?'; i.focus(); } }, 100)">
+          ${ic(SVG.brain, 16)} Ask AI
+        </button>
+      </div>
     </div>
   `;
 }
@@ -1235,13 +1187,13 @@ function renderHistory() {
 
   app.innerHTML = `
     <div class="page page-enter history-page">
-      <div class="page-head" style="display:flex;align-items:center;gap:12px;">
+      <div class="page-head" style="display:flex;align-items:center;justify-content:flex-start;gap:12px;">
         ${inlineBackBtn()}
         <div>
           <h1 class="page-head__title">Scan History</h1>
           <p class="page-head__sub">${hist.length} total analysis${hist.length !== 1 ? "es" : ""} · All data stored locally</p>
         </div>
-        <button class="btn-primary" data-nav="analyze" style="margin-left:auto;">${ic(SVG.cam)} New Scan</button>
+
       </div>
 
       ${hist.length === 0 ? `
@@ -1683,9 +1635,7 @@ function renderChat() {
       <div style="padding: 40px 0 24px; display: flex; align-items: center; border-bottom: 1px solid var(--border); margin-bottom: 28px;">
         ${inlineBackBtn()}
         <div style="display: flex; align-items: center; gap: 14px;">
-          <div style="width: 52px; height: 52px; background: linear-gradient(135deg, var(--primary), #2dd4bf); color: #fff; border-radius: 14px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(23, 107, 115, 0.2);">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          </div>
+
           <div>
             <h1 style="font-size: 24px; font-weight: 800; color: var(--ink); margin: 0; letter-spacing: -0.02em;">AI Skin Assistant</h1>
             <p style="font-size: 13px; color: var(--ink-3); margin: 2px 0 0 0; display: flex; align-items: center; gap: 6px;">
