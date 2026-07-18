@@ -3,7 +3,7 @@
    Acne detection · EfficientNet-B0 · Tri-Layer XAI
    ============================================================ */
 
-const API_BASE = "http://127.0.0.1:5000/api";
+const API_BASE = "https://dermai-o300.onrender.com/api";
 const LLAMA_URL = "https://api.groq.com/openai/v1/chat/completions";
 const LLAMA_KEY = "";// Do NOT put your real key here when pushing to GitHub!
 
